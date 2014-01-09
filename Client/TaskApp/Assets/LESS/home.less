@@ -1,0 +1,200 @@
+.home-wrapper h1.page-title {
+    color: #428bca;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 0em;
+    text-shadow: none;
+    // JB: inset text shdw trick *** DOES NOT WORK ON ANDROID WEBVIEW, errr removing **** -------
+    /*background-color: #0067BE;
+    color: transparent;
+    text-shadow: 0px 3px 3px rgba(255,255,255,0.35);
+    -webkit-background-clip: text;
+     -moz-background-clip: text;
+          background-clip: text;*/
+    
+}
+.home-wrapper h2.page-title {
+    color: #428bca;
+    font-weight: 100;
+    text-shadow: none;
+    margin-top: -15px;
+    margin-bottom: 0;
+}
+.home-wrapper h3.page-title {
+    color: #428bca;
+    font-weight: 100;
+    text-shadow: none;
+    margin-top: -15px;
+    margin-bottom: 0;
+}
+
+
+#featuresCarousel{
+    min-height: 250px;   
+}
+.carousel-control {
+    position: absolute;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    margin-top: 20px;
+    font-size: 60px;
+    font-weight: 100;
+    line-height: 30px;
+    color: #bbb;
+    background: none;
+    border: none;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+.carousel-control:hover, 
+.carousel-control:focus {
+    color: #bbb;
+    text-decoration: none;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+}
+.carousel-control.left {
+    left: 0px;
+}
+.carousel-control.right {
+    right: 0px;
+}
+
+.carousel-inner h2 {
+    padding-top: 20px;
+}
+.carousel-inner .item img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.carousel-inner h2 {
+    margin-top: 0;
+}
+
+.carousel-indicators {
+    padding: 0;
+    top: inherit;
+    bottom: 0;
+    left: 50%;
+    margin-left: -55px;
+}
+.carousel-indicators .active {
+    background-color: #428bca;
+}
+.carousel-indicators li {
+    background-color: rgba(66, 139, 202, 0.3);
+    -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0, 0.65);
+	   -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0, 0.65);
+	        box-shadow: inset 0px 1px 1px rgba(0,0,0, 0.65);
+
+}
+
+
+
+.slide-title{
+    color: #56961d;
+    text-align: center; 
+	text-shadow: 0 -1px 1px rgba(255,255,255,0.9), 0 0 0 black;
+}
+
+.slide-text{
+    color:#777;
+    line-height: 1.5em;
+    text-align: center; 
+	margin: auto 40px;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+}
+
+.home-wrapper{
+    position: relative;
+    height: 100%
+}
+
+.home-slide-panel{
+    z-index: 2;
+    position: relative;
+    padding: 20px 0;
+    margin-bottom: -40px;
+    background: #fff;
+    border: none;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+	-webkit-box-shadow: 0 8px 6px -6px black;
+	   -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;
+}
+
+.leaf-bg{
+    z-index: 1;
+    background-image:           
+    url('/90forLifeMobile/Apps/Shared/Assets/images/bg/bg_greenleaf_990x445.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #5EA319;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+}
+
+.send-icon {
+    position: absolute;
+    bottom: 30px;
+    right: 25px;
+}
+
+
+
+// Indicator Arrows -----------------
+
+.indicator-arrow {
+    position: fixed;
+    width: 274px;
+    height: 120px;
+    opacity: 0;
+    background-repeat: no-repeat;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    -ms-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+
+@media screen and (min-width: 1024px)  {
+    #featuresCarousel div.active.item > div.indicator-arrow {
+        opacity: 0.7;
+        top: 62px;
+        left: 12px;
+        background-image: url('/90forLifeMobile/Images/indicatearrow_xtralarge.png');
+    }
+}
+
+@media screen and (max-width: 1023px)  {
+    #featuresCarousel div.active.item > div.indicator-arrow {
+        opacity: 0.7;
+        top: 70px;
+        left: 12px;
+        background-image: url('/90forLifeMobile/Images/indicatearrow_large.png');
+    }
+}
+
+@media screen and (max-width: 767px)  {
+    #featuresCarousel div.active.item > div.indicator-arrow {
+        opacity: 0.7;
+        top: 45px;
+        left: 10px;
+        background-image: url('/90forLifeMobile/Images/indicatearrow_medium.png');
+    }
+}
+
+@media screen and (max-width: 479px)  {
+    #featuresCarousel div.active.item > div.indicator-arrow {
+        opacity: 0.7;
+        top: 55px;
+        left: 12px;
+        background-image: url('/90forLifeMobile/Images/indicatearrow_small.png');
+    }
+}

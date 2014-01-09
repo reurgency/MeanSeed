@@ -1,0 +1,38 @@
+<div class="login-logo center">
+    <img src=""/>
+</div>
+<!-- Login Form -->
+<div class="page-panel">
+    <!--The novalidate attribute is added to the form to keep Chrome from using its built-in HTML 5 validation popups(because of required attribute-also used by AngularJS)-->
+    <form name="loginForm" novalidate ng-submit="login()" class="form-horizontal">
+        <div class="control-group">
+        <h3>Welcome! Sign In.</h3>
+            
+        <div ng-show="isError" class="alert alert-error">{{ errorMessage }}</div>
+        <div ng-show="sessionExpired" class="alert alert-success">{{ sessionExpiredMessage }}</div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <input type="text" id="inputUserName" name="inputUserName" placeholder="YGY ID# or Url Name" required ng-model="login_username" ng-maxlength="50" ng-pattern="/^[0-9a-zA-Z]+$/"><br />
+          <div class="alert alert-error" ng-show="loginForm.inputUserName.$error.pattern">Please enter a valid username</div>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <input type="password" id="inputPassword" name="inputPassword" placeholder="Password" required ng-model="login_password" ng-maxlength="50" ng-pattern="/^[0-9a-zA-Z \/.@()!#$%^&*?+_-]+$/"><br />
+          <div class="alert alert-error" ng-show="loginForm.inputPassword.$error.pattern">Please remove invalid characters</div>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+            <input type="submit" id="submit" value="Sign In" class="btn btn-large btn-primary"/>
+        </div>
+      </div>
+      <p>Need a Login? Call <a href="tel:800-123-4567">800-123-4567</a></p>
+      <a ng-click="clearCookies()" ng-show="cookies.RepUserName">Login Problems? Click here to clear your Cookies and then try again.</a>
+    </form>
+</div>
+<!--
+<p class="super-pad">
+</p>
+-->

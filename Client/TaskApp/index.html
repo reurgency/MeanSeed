@@ -1,0 +1,110 @@
+<!doctype html>
+
+<!-- Html5 Boilerplate logic -->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:100,400,700' rel='stylesheet' type='text/css'>
+    
+    <!-- HTML5 Boilerplate items -->
+    <title>Task App</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- Bundled CSS Styles -->
+    <link href="/TaskApp/Assets/CSS/bootstrap-and-responsive.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="/Shared/Assets/CSS/snap.css" />
+    <link href="/TaskApp/Assets/CSS/app.css" rel="stylesheet"/>
+        
+    <!-- Modernizr.js must be loaded before body  -->
+    <script src="/Scripts/modernizr-2.6.2.js"></script>
+    <script src="/TaskApp/config.js"></script>
+</head>
+
+<body ng-app="TaskApp">
+
+<!-- OUTER -->
+<div class="relative tall outer">
+
+    <!--    CONTENT -->
+    <div id="content" class="container absolute scrollable overthrow">
+        <div class="relative tall">            
+
+            <!--Here go the partials -->
+            <div class="angularView mainView" ng-view></div>
+        </div> 
+    </div> <!-- END CONTENT --> 
+    
+    <!-- Footer -->
+    <hr/>
+
+    <footer ng-controller="AppController">
+        <p><span id="versionInfo">v. NCV (1.1.0)</span> &copy; {{ companyName }} {{copyrightYear}} - <span><a href="tel:800-123-4567">800-123-4567</a></span></p>
+    </footer>
+    
+</div> <!-- END OUTER page wrapper -->
+
+<div>
+    <spinner />    
+</div>  
+
+<!-- Scripts -->
+<script src="/Scripts/jquery-1.9.1.js"></script>
+<script src="/Scripts/Html5Boilerplate/plugins.js"></script>
+<script src="/Scripts/bootstrap.js"></script>
+<script src="/Scripts/angular.js"></script>
+<script src="/Scripts/angular-resource.js"></script>
+<script src="/Scripts/angular-route.js"></script>
+<script src="/Scripts/angular-cookies.js"></script>
+<!--<script src="/Scripts/fastclick.js"></script>-->
+<!--<script src="/Scripts/snap.js"></script>-->
+<script src="/Scripts/moment.min.js"></script>
+<script src="/Scripts/angular-moment.js"></script>
+    
+
+
+<script src="/TaskApp/app.js"></script>
+<script src="/Shared/Resources/Resources.js"></script>
+<script src="/TaskApp/Login/login.js"></script>
+<script src="/Shared/Filters/filters.js"></script>
+<script src="/Shared/Directives/Utilities.js"></script>
+<script src="/Shared/Directives/spinner/spinner.js"></script>
+<script src="/Shared/Services/ProjectVersion.js"></script>
+<script src="/Shared/Services/SharedDataService.js"></script>
+<script src="/Shared/Services/ConfigService.js"></script>
+<script src="/Shared/Services/PaginatorService.js"></script>
+<script src="/Scripts/Placeholders.min.js"></script>
+
+<script src="/Shared/Utilities/re.js"></script>
+<script src="/Shared/Utilities/collectionUtils.js"></script>
+<script src="/Shared/Base/ViewModelBase.js"></script>
+
+
+
+<script src="/TaskApp/Tasks/TaskController.js"></script>
+<script src="/TaskApp/Tasks/TaskListVMController.js"></script>
+<script src="/TaskApp/Tasks/TaskModel.js"></script>
+<script src="/TaskApp/Tasks/TaskVMController.js"></script>
+
+<!-- SNAP.JS -->
+<!--<script type="text/javascript">
+    var snapper = new Snap({
+        element: document.getElementById('content'),
+        disable: 'right'
+        //easing: 'linear',
+        //transitionSpeed: 0.2
+    });    
+</script>      -->
+
+
+</body>
+
+</html>

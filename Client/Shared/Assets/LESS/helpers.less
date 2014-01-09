@@ -1,0 +1,90 @@
+/* --- HELPERS --- */
+
+// Display & Position //
+.no-display{
+    display: none;   
+}
+.block {
+    display: block;
+}
+.inline-block{
+    display: inline-block;
+}
+.inline{
+    display: inline;
+}
+.table{
+    display: table;
+}
+.absolute{
+    position: absolute;
+}
+.relative{
+    position: relative;
+}
+.fixed{
+    position: fixed;
+}
+.static{
+    position: static;
+}
+.break-word {
+    word-break: break-word;
+}
+.clear{
+    clear: both;   
+}
+.center{
+    text-align: center;
+}
+.text-left{
+    text-align: left;
+}
+.text-right{
+    text-align: right;
+}
+.centerize {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+.visble {
+    visibility:visible;
+}
+.invisible {
+    visibility:hidden;
+}
+.opacity-half {
+    opacity: .5;
+}
+.white{
+    color: #fff;   
+}
+.black{
+    color: #000;
+}
+.small{
+    font-size: 0.8em;   
+}
+.smaller{
+    font-size: 0.6em;   
+}
+
+/* Smooth Scrolling on mobile devices */
+.scrollable{
+    overflow: auto;
+    -webkit-transition-property: top, bottom;
+    transition-property: top, bottom;
+    -webkit-transition-duration: .2s, .2s;
+    transition-duration: .2s, .2s;
+    -webkit-transition-timing-function: linear, linear;
+    transition-timing-function: linear, linear;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Overthrow CSS:
+Enable overflow: auto on elements with overthrow class when html element has overthrow class too */
+.overthrow-enabled .overthrow {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}

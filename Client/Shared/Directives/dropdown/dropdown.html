@@ -1,0 +1,22 @@
+<div class="btn-group" >
+    <style>
+        .dropdown-menu {
+            max-height: 125px;
+            min-width: 125px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        .dropdown-menu > li {
+            min-height: 32px;
+            line-height: 32px;
+        }
+    </style>
+    <button class="btn dropdown-toggle btn-primary" style="min-width: 125px" data-toggle="dropdown" ng-click='buttonClicked();'>{{itemLabel(selectedItem)}}
+    <div class="dropdown-caret-right" >
+    <span class="caret"></span>
+        </div>
+    </button>
+    <ul class="dropdown-menu" style="min-width: 125px">
+        <li ng-repeat="item in provider" ><a ng-click="selectItem(item);" ng-class="{active: selectedItem == item}">{{itemLabel(item)}}</a></li>
+    </ul>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-panel">  
+    
+    <div class="customer-item task-row" 
+        ng-repeat="task in TaskModel.tasks" 
+        ng-click="taskClicked(task)">
+                
+        <div class="task-name inline-block">
+            <h4>{{task.Name}} &nbsp; </h4>
+        </div>
+        <div class="task-column inline-block">
+            <h4>{{task.Description}} &nbsp; </h4>
+        </div>
+    </div>
+    <div class="btn" ng-click="$emit('addTaskRequested');">Add New Task</div>
+</div>

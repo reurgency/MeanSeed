@@ -6,7 +6,7 @@ angular.module('TaskApp.Resources', ['ngResource'])
     return $resource(re.serviceHost + '/Login/');
 }])
 
-.factory('TaskService', ['$resource', function ($resource) {
+.factory('TaskResource', ['$resource', function ($resource) {
     return $resource(re.serviceHost + '/tasks/:id', { action: '@action', id: '@id' },
             {
                 update: { method: 'PUT' },

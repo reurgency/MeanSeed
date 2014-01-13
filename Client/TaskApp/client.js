@@ -40,9 +40,9 @@ angular.module('TaskApp', [
             '$cookies',
             '$http',
             'sharedData',
-            'TaskController',
+            'TaskService',
 
-            function ($rootScope, $location, $cookies, $http, sharedData, TaskController) {
+            function ($rootScope, $location, $cookies, $http, sharedData, TaskService) {
 
         $http.defaults.useXDomain = true;
         //$http.defaults.withCredentials = true;

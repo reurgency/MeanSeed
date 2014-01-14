@@ -5,3 +5,7 @@ node_modules/
 .idea/jsLibraryMappings.xml
 
 .idea/workspace.xml
+
+.tmp/
+
+Client/dist

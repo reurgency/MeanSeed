@@ -1,0 +1,16 @@
+{
+  "path": {
+    "client": "Client",
+    "dist": "Client",
+    "log": "log",
+    "server": "Server",
+    "static": "Client",
+    "test": "test",
+    "temp": ".tmp"
+  },
+  "server": {
+    "livereload": 35729,
+    "port": 3000,
+    "repl": false
+  }
+}

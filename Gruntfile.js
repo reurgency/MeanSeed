@@ -5,26 +5,80 @@
  * Time: 8:16 AM
  * To change this template use File | Settings | File Templates.
  */
+var path = require('path'),
+    util = require('util');
+
+var _ = require('lodash'),
+    coffeeify = require('coffeeify'),
+    hbsfy = require('hbsfy'),
+    ngmin = require('ngmin'),
+    rfileify = require('rfileify'),
+    uglify = require('uglify-js'),
+    wrench = require('wrench');
+
+var project = require('./project');
+
 module.exports = function(grunt) {
 
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        uglify: {
+        project: grunt.file.readJSON('project.json'),
+        /*uglify: {  // grunt-contrib-uglify
+            dist: {
+                files: _.transform({
+                    paths: _.map([
+                        'client.js'
+                    ], function (path) {
+                        return project.path.client + "/" + path;
+                    })
+                }, function (result, files) {
+                    _.assign(result, _.object(files, files));
+                })
+            }
+        },*/
+        usemin: {  // grunt-usemin
             options: {
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+                dirs: ['<%= project.path %>']
             },
-            build: {
-                src: 'app.js',
-                dest: 'build/<%= pkg.name %>.min.js'
+            html: ['<%= project.path.client %>/dist/*.html'],
+            css: ['<%= project.path.client %>/dist/css/{,*/}*.css']
+        },
+
+
+        useminPrepare: {  // grunt-usemin
+            options: {
+                dest: '<%= project.path.client %>',
+                root: '<%= project.path.client %>'
+            },
+            html: '<%= project.path.client %>/TaskApp/*.html'
+        },
+
+        copy: {
+            main: {
+                files: [
+                    { src: '<%= project.path.client %>/TaskApp/index.html', dest: '<%= project.path.client %>/dist/index.html'}
+                ]
             }
         }
     });
 
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-usemin');
+    grunt.loadNpmTasks('grunt-contrib');
 
     // Default task(s).
-    grunt.registerTask('default', ['uglify']);
+    //grunt.registerTask('default', ['concat', 'useminPrepare', 'usemin']);
+
+    grunt.registerTask('build',
+        [
+            'useminPrepare',
+            'concat',
+            'uglify',
+            'copy',
+            'usemin'
+        ]
+    );
 
 };

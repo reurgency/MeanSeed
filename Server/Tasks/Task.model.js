@@ -12,10 +12,10 @@ var mongoose = require('mongoose'),
  */
 var TaskSchema = new Schema(
     {
-        TaskId: Schema.Types.ObjectId,
+        //TaskId: Schema.Types.ObjectId,
         Name: String,
-        Description: String,
-        DueDate: Date
+        Description: String//,
+        //DueDate: Date
     },
     { _id: false }
 );
@@ -49,4 +49,4 @@ TaskSchema.path('Name').validate(function(name) {
  */
 
 
-mongoose.model('Task', TaskSchema);
+exports.Model = mongoose.model('Task', TaskSchema);

@@ -7,18 +7,38 @@
  */
 'use strict';
 
-exports.register = function(app){
-    var API_PATH = "/api";
+exports.register = function(app, models){
 
-    var user = require('../Users/User.api');
-    var task = require('../Tasks/Task.api');
+    //Set up an instance of restify that works with express
+    var restify = require('express-restify-mongoose');
 
-    //app.get('/', routes.index);
-    app.get(API_PATH + '/users', user.list);
+    //Add restify options.  These are actually defaults but I wanted it to be obvious that these are configurable
+    var restifyOptions = {
+        prefix: '/api',
+        version: '/v1',
+        private: false,
+        lean: true,
+        plural: true,
+        middleware: [],
+        strict: false,
+        findOneAndUpdate: true
+    };
 
-    app.get(API_PATH + '/tasks', task.list);
-    app.get(API_PATH + '/tasks/:TaskId', task.get);
-    app.post(API_PATH + '/tasks', task.save);
+    restify.defaults(restifyOptions);
+
+    //Configure our default rest services using our collection of data models
+    app.configure(
+        function(){
+            for( var index = 0; index < models.length; index++ ){
+                var model = models[index];
+                restify.serve(app, model);
+            }
+        }
+    );
+
+    //Apply any custom services here
+    //var TaskApi = require("../Tasks/Task.api");
+    //app.get('/api/tasks', TaskApi.list);
 }
 
 

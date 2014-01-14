@@ -31,11 +31,13 @@ app.use(express.static('Client'));
 
 var db = mongoose.connect(config.db);
 
-var routes = require("./config/routes");
-routes.register(app);
-
 //Bootstrap models
-require("./config/models").configure();
+var models = require("./config/models");
+models.configure(app, __dirname);
+
+//Wire up the api
+var routes = require("./config/routes");
+routes.register(app, models.models);
 
 require("./config/passport")(passport);
 

@@ -117,11 +117,11 @@ taskModule.config(['$routeProvider', function ($routeProvider) {
             sharedData.mode = "task";
             sharedData.backPath = "";
 
-            var taskId = parseInt($routeParams.id);
-            if( taskId ){
+            var taskId = $routeParams.id;
+            if( taskId && taskId != "0" ){
                 getTask(taskId);
             }else{
-                task.TaskId = 0;
+                //task.TaskId = 0;
                 task.Name = "";
                 task.Description = "";
             }

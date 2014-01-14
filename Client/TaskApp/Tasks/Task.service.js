@@ -53,7 +53,7 @@ function ($rootScope, $location, TaskModel,  TaskResource) {
                 if (valid) {
                     TaskResource.save(task,
                         function (savedTask) {
-                            var task = re.getItemByProperty(TaskModel.task, "TaskId", savedTask.TaskId);
+                            var task = re.getItemByProperty(TaskModel.task, "_id", savedTask._id);
 
                             for (var property in savedTask) {
                                 task[property] = savedTask[property];
@@ -71,9 +71,9 @@ function ($rootScope, $location, TaskModel,  TaskResource) {
 
             function removeTaskRequestedHandler(event, task) {
 
-                TaskResource.delete(task.TaskId,
+                TaskResource.delete(task._id,
                     function () {
-                        var oldTaskIndex = re.getIndexByProperty(TaskModel.task, "TaskId", task.TaskId);
+                        var oldTaskIndex = re.getIndexByProperty(TaskModel.task, "_id", task._id);
                         TaskModel.task.splice(oldTaskIndex, 1);
 
                         $location.path("/task");

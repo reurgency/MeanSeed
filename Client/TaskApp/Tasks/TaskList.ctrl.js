@@ -68,6 +68,11 @@ taskModule.config(['$routeProvider', '$compileProvider', function ($routeProvide
                 }
                 $scope.addTaskRequested = addTaskRequested;
 
+                function taskClicked(task){
+                    $location.path("/task/" + task._id);
+                }
+                $scope.taskClicked = taskClicked;
+
                 /*************************************************************************
                  ***
                  *** Application Event Handlers

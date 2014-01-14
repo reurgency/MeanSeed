@@ -51,18 +51,11 @@ function ($rootScope, $location, TaskModel,  TaskResource) {
                 }
 
                 if (valid) {
-                    TaskResource.save(task,
-                        function (savedTask) {
-                            var task = re.getItemByProperty(TaskModel.task, "_id", savedTask._id);
-
-                            for (var property in savedTask) {
-                                task[property] = savedTask[property];
-                            }
-
-                            $rootScope.$apply();
-                            $rootScope.$emit('taskUpdateComplete', task);
-                        }
-                    );
+                    if(task._id){
+                        TaskResource.update( {id: task._id}, task, saveTask_resultHandler );
+                    }else{
+                        TaskResource.save( task, saveTask_resultHandler );
+                    }
                 } else {
                     alert(validationMessages.join("\n"));
                 }
@@ -71,13 +64,9 @@ function ($rootScope, $location, TaskModel,  TaskResource) {
 
             function removeTaskRequestedHandler(event, task) {
 
-                TaskResource.delete(task._id,
-                    function () {
-                        var oldTaskIndex = re.getIndexByProperty(TaskModel.task, "_id", task._id);
-                        TaskModel.task.splice(oldTaskIndex, 1);
-
-                        $location.path("/task");
-                        $rootScope.$apply();
+                TaskResource.delete({ id: task._id },
+                    function(){
+                        deleteTask_resultHandler(task);
                     }
                 );
             }
@@ -97,13 +86,37 @@ function ($rootScope, $location, TaskModel,  TaskResource) {
             **************************************************************************/
 
             function getTasks_resultHandler(results) {
-                TaskModel.task = results;
+                TaskModel.tasks = results;
 
                 $rootScope.$emit("taskReceived", results);
             }
 
             function getTask_resultHandler(task) {
                 $rootScope.$emit("taskReceived", task);
+            }
+
+            function saveTask_resultHandler(savedTask) {
+                var task = re.getItemByProperty(TaskModel.tasks, "_id", savedTask._id);
+
+                if( task ){
+                    //Make sure that any property that got changed by the server
+                    //gets applied here
+                    for (var property in savedTask) {
+                        task[property] = savedTask[property];
+                    }
+                }else{
+                    //This is a new task, add it to the collection
+                    TaskModel.tasks.push(savedTask);
+                }
+
+                $rootScope.$emit('taskUpdateComplete', task);
+            }
+
+            function deleteTask_resultHandler(task) {
+                var oldTaskIndex = re.getIndexByProperty(TaskModel.tasks, "_id", task._id);
+                TaskModel.tasks.splice(oldTaskIndex, 1);
+
+                $location.path("/task");
             }
 
             /*************************************************************************

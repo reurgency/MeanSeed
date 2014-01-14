@@ -1876,6 +1876,24 @@ a:hover > span > .appLogoLabel {
   -ms-transition: opacity 1s ease-in-out;
   transition: opacity 1s ease-in-out;
 }
+
+
+.task-row {
+    /*padding: 20px;
+    padding-top: 23px;
+    padding-bottom: 17px;   */
+}
+.task-row:nth-child(odd) {
+    background-color: #f7f7f7;
+}
+.task-row:hover {
+    background-color: #f1f1f1;
+}
+
+.task-name{
+    padding-left:10px;
+}
+
 @media screen and (min-width: 1024px) {
   #featuresCarousel div.active.item > div.indicator-arrow {
     opacity: 0.7;

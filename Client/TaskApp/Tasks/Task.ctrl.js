@@ -72,6 +72,11 @@ taskModule.config(['$routeProvider', function ($routeProvider) {
             $scope.delete = remove;
 
 
+            function cancel(){
+                $location.path("/tasks");
+            }
+            $scope.cancel = cancel;
+
             /*************************************************************************
             ***
             *** Application Event Handlers
@@ -90,6 +95,7 @@ taskModule.config(['$routeProvider', function ($routeProvider) {
             function taskUpdateCompleteHandler(event, task) {
                 $location.path("/task");
             }
+            $scope.$addEventListener("taskUpdateComplete", taskUpdateCompleteHandler);
 
             /*************************************************************************
             ***

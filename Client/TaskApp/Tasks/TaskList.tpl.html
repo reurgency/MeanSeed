@@ -3,13 +3,17 @@
     <div class="customer-item task-row" 
         ng-repeat="task in TaskModel.tasks" 
         ng-click="taskClicked(task)">
-                
+
+        <hr />
+
         <div class="task-name inline-block">
             <h4>{{task.Name}} &nbsp; </h4>
         </div>
         <div class="task-column inline-block">
             <h4>{{task.Description}} &nbsp; </h4>
         </div>
+
+        <hr />
     </div>
     <div class="btn" ng-click="addTaskRequested();">Add New Task</div>
 </div>

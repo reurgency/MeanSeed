@@ -16,8 +16,7 @@ var TaskSchema = new Schema(
         Name: String,
         Description: String//,
         //DueDate: Date
-    },
-    { _id: false }
+    }
 );
 
 /**

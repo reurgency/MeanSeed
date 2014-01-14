@@ -24,19 +24,6 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         project: grunt.file.readJSON('project.json'),
-        /*uglify: {  // grunt-contrib-uglify
-            dist: {
-                files: _.transform({
-                    paths: _.map([
-                        'client.js'
-                    ], function (path) {
-                        return project.path.client + "/" + path;
-                    })
-                }, function (result, files) {
-                    _.assign(result, _.object(files, files));
-                })
-            }
-        },*/
         usemin: {  // grunt-usemin
             options: {
                 dirs: ['<%= project.path %>']

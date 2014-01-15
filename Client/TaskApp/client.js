@@ -15,7 +15,8 @@ angular.module('TaskApp', [
     'shared.directives.spinner',
     'TaskApp.Resources',
     'Login',
-    'TaskApp.task'
+    'TaskApp.task',
+    "TaskApp.Templates"
 ])
 
 

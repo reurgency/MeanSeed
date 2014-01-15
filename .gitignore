@@ -9,3 +9,5 @@ node_modules/
 .tmp/
 
 Client/dist
+
+/Client/TaskApp/Templates.js

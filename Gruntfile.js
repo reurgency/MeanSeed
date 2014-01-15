@@ -47,6 +47,33 @@ module.exports = function(grunt) {
                     { src: '<%= project.path.client %>/TaskApp/index.html', dest: '<%= project.path.client %>/dist/index.html'}
                 ]
             }
+        },
+
+        ngmin: {
+            controllers: {
+                src: ['Client/TaskApp/Tasks/Task.ctrl.js'],
+                dest: 'Client/dist/Task.ctrl.js'
+            },
+            directives: {
+                expand: true,
+                cwd: 'test/src',
+                src: ['directives/**/*.js'],
+                dest: 'test/generated'
+            }
+        },
+
+        html2js: {
+            options: {
+                base: "Client",
+                module: "TaskApp.Templates",
+                rename: function(moduleName){
+                    return "/" + moduleName;
+                }
+            },
+            main: {
+                src: ['<%= project.path.client %>/**/*.tpl.html'],
+                dest: '<%= project.path.client %>/TaskApp/Templates.js'
+            }
         }
     });
 
@@ -54,15 +81,20 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-usemin');
     grunt.loadNpmTasks('grunt-contrib');
+    grunt.loadNpmTasks('grunt-ngmin');
+    grunt.loadNpmTasks('grunt-html2js');
 
     // Default task(s).
     //grunt.registerTask('default', ['concat', 'useminPrepare', 'usemin']);
 
     grunt.registerTask('build',
         [
+            //'ngmin',
+            'html2js',
             'useminPrepare',
             'concat',
             'uglify',
+            'cssmin',
             'copy',
             'usemin'
         ]

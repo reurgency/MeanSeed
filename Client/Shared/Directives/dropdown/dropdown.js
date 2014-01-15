@@ -26,26 +26,28 @@ angular.module( 'shared.directives.dropdown', [] )
             },
             defaultTemplateUrl: '/Shared/Directives/dropdown/dropdown.html',
 
-            compile: function (tElement, tAttrs) {
-                var templateLoader;
-                if (!tAttrs.templateUrl && this.defaultTemplateUrl) {
-                    tAttrs.templateUrl = this.defaultTemplateUrl;
-                }
-                if (tAttrs.templateUrl) {
-                    templateLoader = $http.get(tAttrs.templateUrl, { cache: $templateCache })
-                      .success(function (html) {
-                          tElement.html(html);
-                      });
-                }
-
-                return function (scope, element, attrs) {
-                    if (templateLoader) {
-                        templateLoader.then(function (templateText) {
-                            element.html($compile(tElement.html())(scope));
-                        });
+            compile: [ "tElement", "tAttrs",
+                function (tElement, tAttrs) {
+                    var templateLoader;
+                    if (!tAttrs.templateUrl && this.defaultTemplateUrl) {
+                        tAttrs.templateUrl = this.defaultTemplateUrl;
                     }
-                };
-            },
+                    if (tAttrs.templateUrl) {
+                        templateLoader = $http.get(tAttrs.templateUrl, { cache: $templateCache })
+                          .success(function (html) {
+                              tElement.html(html);
+                          });
+                    }
+
+                    return function (scope, element, attrs) {
+                        if (templateLoader) {
+                            templateLoader.then(function (templateText) {
+                                element.html($compile(tElement.html())(scope));
+                            });
+                        }
+                    };
+                }
+            ],
 
             controller:['$scope', '$element', '$attrs', 
                 function ($scope, $element, $attrs) {

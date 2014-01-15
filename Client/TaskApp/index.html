@@ -25,10 +25,12 @@
     <link rel="stylesheet" type="text/css" href="/Shared/Assets/CSS/snap.css" />
     <link href="/TaskApp/Assets/CSS/app.css" rel="stylesheet"/>
     <!-- endbuild -->
-        
+
+    <!-- build:js /dist/pre.js -->
     <!-- Modernizr.js must be loaded before body  -->
     <script src="/Scripts/modernizr-2.6.2.js"></script>
     <script src="/TaskApp/config.js"></script>
+    <!-- endbuild -->
 </head>
 
 <body ng-app="TaskApp">
@@ -63,14 +65,15 @@
 <script src="/Scripts/jquery-1.9.1.js"></script>
 <script src="/Scripts/Html5Boilerplate/plugins.js"></script>
 <script src="/Scripts/bootstrap.js"></script>
-<script src="/Scripts/angular.js"></script>
+
+
+<script src="/Scripts/angular.min.js"></script>
+
+<script src="/Scripts/moment.min.js"></script>
+<script src="/Scripts/angular-moment.js"></script>
 <script src="/Scripts/angular-resource.js"></script>
 <script src="/Scripts/angular-route.js"></script>
 <script src="/Scripts/angular-cookies.js"></script>
-<!--<script src="/Scripts/fastclick.js"></script>-->
-<!--<script src="/Scripts/snap.js"></script>-->
-<script src="/Scripts/moment.min.js"></script>
-<script src="/Scripts/angular-moment.js"></script>
 
 <script src="/TaskApp/Templates.js" ></script>
 
@@ -96,39 +99,6 @@
 <script src="/TaskApp/Tasks/Task.ctrl.js"></script>
 <!-- endbuild -->
 
-<!-- old scripts
-<script src="/Scripts/jquery-1.9.1.js"></script>
-<script src="/Scripts/Html5Boilerplate/plugins.js"></script>
-<script src="/Scripts/bootstrap.js"></script>
-<script src="/Scripts/angular.js"></script>
-<script src="/Scripts/angular-resource.js"></script>
-<script src="/Scripts/angular-route.js"></script>
-<script src="/Scripts/angular-cookies.js"></script>
-
-<script src="/Scripts/moment.min.js"></script>
-<script src="/Scripts/angular-moment.js"></script>
-
-<script src="/TaskApp/client.js"></script>
-<script src="/Shared/Resources/Resources.js"></script>
-<script src="/TaskApp/Login/login.js"></script>
-<script src="/Shared/Filters/filters.js"></script>
-<script src="/Shared/Directives/Utilities.js"></script>
-<script src="/Shared/Directives/spinner/spinner.js"></script>
-<script src="/Shared/Services/ProjectVersion.js"></script>
-<script src="/Shared/Services/SharedDataService.js"></script>
-<script src="/Shared/Services/ConfigService.js"></script>
-<script src="/Shared/Services/PaginatorService.js"></script>
-<script src="/Scripts/Placeholders.min.js"></script>
-
-<script src="/Shared/Utilities/re.js"></script>
-<script src="/Shared/Utilities/collectionUtils.js"></script>
-<script src="/Shared/Base/ViewModelBase.js"></script>
-
-<script src="/TaskApp/Tasks/Task.service.js"></script>
-<script src="/TaskApp/Tasks/TaskList.ctrl.js"></script>
-<script src="/TaskApp/Tasks/Task.model.js"></script>
-<script src="/TaskApp/Tasks/Task.ctrl.js"></script>
--->
 
 <!-- SNAP.JS -->
 <!--<script type="text/javascript">

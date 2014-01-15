@@ -5,34 +5,39 @@
 
 angular.module('shared.directives.spinner', [])
 
-    .directive('spinner', function () {
-        return {
-            restrict: 'E',
-            replace: true,
-            scope: {
-                
-            },
-            templateUrl: '/Shared/Directives/spinner/spinner-12bar.tpl.html',
-            controller: function ($scope, $element, $attrs, $rootScope) {
-                $scope.globalCallCount = $rootScope.spinnerScope.globalCallCount;
-                $rootScope.spinnerScope = $scope;
-                $scope.show = $scope.globalCallCount != 0;
-                
-                $scope.spinnerStopFunction = function () {
-                    $scope.show = false;
-                }
+    .directive('spinner', [
+        function () {
+            return {
+                restrict: 'E',
+                replace: true,
+                scope: {
 
-                $scope.spinnerStartFunction = function () {
-                    $scope.show = true;
-                }
+                },
+                templateUrl: '/Shared/Directives/spinner/spinner-12bar.tpl.html',
+                controller: [ "$scope", "$element", "$attrs", "$rootScope",
+                    function ($scope, $element, $attrs, $rootScope) {
+                        $scope.globalCallCount = $rootScope.spinnerScope.globalCallCount;
+                        $rootScope.spinnerScope = $scope;
+                        $scope.show = $scope.globalCallCount != 0;
 
-                $scope.$on('spinnerStart', $scope.spinnerStartFunction);
+                        $scope.spinnerStopFunction = function () {
+                            $scope.show = false;
+                        }
 
-                $scope.$on('spinnerStop', $scope.spinnerStopFunction);
+                        $scope.spinnerStartFunction = function () {
+                            $scope.show = true;
+                        }
 
+                        $scope.$on('spinnerStart', $scope.spinnerStartFunction);
+
+                        $scope.$on('spinnerStop', $scope.spinnerStopFunction);
+
+                    }
+                ]
             }
-        };
-    })
+        }
+    ]
+    )
 
     .config(['$httpProvider', '$provide', function ($httpProvider, $provide) {
         var rootScope;

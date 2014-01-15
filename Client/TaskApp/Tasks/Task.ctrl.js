@@ -73,9 +73,9 @@ taskModule.config(['$routeProvider', function ($routeProvider) {
 
 
             function cancel(){
-                $location.path("/tasks");
+
             }
-            $scope.cancel = cancel;
+
 
             /*************************************************************************
             ***

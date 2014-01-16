@@ -85,9 +85,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-html2js');
 
     // Default task(s).
-    //grunt.registerTask('default', ['concat', 'useminPrepare', 'usemin']);
-
-    grunt.registerTask('build',
+    grunt.registerTask('default',
         [
             //'ngmin',
             'html2js',

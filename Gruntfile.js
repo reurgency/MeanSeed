@@ -8,13 +8,7 @@
 var path = require('path'),
     util = require('util');
 
-var _ = require('lodash'),
-    coffeeify = require('coffeeify'),
-    hbsfy = require('hbsfy'),
-    ngmin = require('ngmin'),
-    rfileify = require('rfileify'),
-    uglify = require('uglify-js'),
-    wrench = require('wrench');
+var _ = require('lodash')
 
 var project = require('./project');
 
@@ -80,9 +74,12 @@ module.exports = function(grunt) {
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-usemin');
-    grunt.loadNpmTasks('grunt-contrib');
-    grunt.loadNpmTasks('grunt-ngmin');
     grunt.loadNpmTasks('grunt-html2js');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+
+
 
     // Default task(s).
     grunt.registerTask('default',

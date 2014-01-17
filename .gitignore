@@ -11,3 +11,5 @@ node_modules/
 Client/dist
 
 /Client/TaskApp/Templates.js
+
+npm-debug.log

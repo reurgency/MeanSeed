@@ -16,7 +16,7 @@ exports.configure = function(app, serverPath){
         var fs = require("fs");
         fs.readdirSync(dir).forEach(
             function(file) {
-                var newPath = dir + '\\' + file;
+                var newPath = dir + '/' + file;
                 var stat = fs.statSync(newPath);
                 if (stat.isFile()) {
                     if (/(.*)\.(model.js$)/.test(file)) {

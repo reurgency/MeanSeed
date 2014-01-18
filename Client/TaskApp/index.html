@@ -7,30 +7,30 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
 <head>
-    <!-- Google Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Raleway:100,400,700' rel='stylesheet' type='text/css'>
-    
-    <!-- HTML5 Boilerplate items -->
-    <title>Task App</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:100,400,700' rel='stylesheet' type='text/css'>
 
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- HTML5 Boilerplate items -->
+  <title>Task App</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Bundled CSS Styles -->
-    <!-- build:css /dist/app.css -->
-    <link href="/TaskApp/Assets/CSS/bootstrap-and-responsive.css" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" href="/Shared/Assets/CSS/snap.css" />
-    <link href="/TaskApp/Assets/CSS/app.css" rel="stylesheet"/>
-    <!-- endbuild -->
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <!-- build:js /dist/pre.js -->
-    <!-- Modernizr.js must be loaded before body  -->
-    <script src="/Scripts/modernizr-2.6.2.js"></script>
-    <script src="/TaskApp/config.js"></script>
-    <!-- endbuild -->
+  <!-- Bundled CSS Styles -->
+  <!-- build:css /dist/app.css -->
+  <link href="/TaskApp/Assets/CSS/bootstrap-and-responsive.css" rel="stylesheet"/>
+  <link rel="stylesheet" type="text/css" href="/Shared/Assets/CSS/snap.css" />
+  <link href="/TaskApp/Assets/CSS/app.css" rel="stylesheet"/>
+  <!-- endbuild -->
+
+  <!-- build:js /dist/pre.js -->
+  <!-- Modernizr.js must be loaded before body  -->
+  <script src="/Scripts/modernizr-2.6.2.js"></script>
+  <script src="/TaskApp/config.js"></script>
+  <!-- endbuild -->
 </head>
 
 <body ng-app="TaskApp">
@@ -38,27 +38,27 @@
 <!-- OUTER -->
 <div class="relative tall outer">
 
-    <!--    CONTENT -->
-    <div id="content" class="container absolute scrollable overthrow">
-        <div class="relative tall">            
+  <!--    CONTENT -->
+  <div id="content" class="container absolute scrollable overthrow">
+    <div class="relative tall">
 
-            <!--Here go the partials -->
-            <div class="angularView mainView" ng-view></div>
-        </div> 
-    </div> <!-- END CONTENT --> 
-    
-    <!-- Footer -->
-    <hr/>
+      <!--Here go the partials -->
+      <div class="angularView mainView" ng-view></div>
+    </div>
+  </div> <!-- END CONTENT -->
 
-    <footer ng-controller="AppController">
-        <p><span id="versionInfo">v. NCV (1.1.0)</span> &copy; {{ companyName }} {{copyrightYear}} - <span><a href="tel:800-123-4567">800-123-4567</a></span></p>
-    </footer>
-    
+  <!-- Footer -->
+  <hr/>
+
+  <footer ng-controller="AppController">
+    <p><span id="versionInfo">v. NCV (1.1.0)</span> &copy; {{ companyName }} {{copyrightYear}} - <span><a href="tel:800-123-4567">800-123-4567</a></span></p>
+  </footer>
+
 </div> <!-- END OUTER page wrapper -->
 
 <div>
-    <spinner />    
-</div>  
+  <spinner />
+</div>
 
 <!-- Scripts -->
 <!-- build:js /dist/app.js -->

@@ -17,33 +17,33 @@ angular.module('TaskApp', [
     'Login',
     'TaskApp.task',
     "TaskApp.Templates"
-])
+  ])
 
 
-    .config(['$routeProvider', function ($routeProvider) {
+  .config(['$routeProvider', function ($routeProvider) {
 
-        $routeProvider
-            //.when(
-                //'/',
-                    //{
-                        //templateUrl: '/TaskApp/Login/login.tpl.html',
-                        //controller: 'LoginController'
-                    //}
-       //)
-        .otherwise({ redirectTo: '/task' });
-    }])
+    $routeProvider
+      //.when(
+      //'/',
+      //{
+      //templateUrl: '/TaskApp/Login/login.tpl.html',
+      //controller: 'LoginController'
+      //}
+      //)
+      .otherwise({ redirectTo: '/task' });
+  }])
 
 
-    .run(
-        [
-            '$rootScope',
-            '$location',
-            '$cookies',
-            '$http',
-            'sharedData',
-            'TaskService',
+  .run(
+    [
+      '$rootScope',
+      '$location',
+      '$cookies',
+      '$http',
+      'sharedData',
+      'TaskService',
 
-            function ($rootScope, $location, $cookies, $http, sharedData, TaskService) {
+      function ($rootScope, $location, $cookies, $http, sharedData, TaskService) {
 
         $http.defaults.useXDomain = true;
         //$http.defaults.withCredentials = true;
@@ -51,38 +51,38 @@ angular.module('TaskApp', [
 
         //Check to see if environment is using cross domain calls via CORS and set the header
         if (re.serviceHost) {
-            var token = $http.defaults.headers.common['Reurgency_Token'];
-            if (!token && $cookies.Reurgency_Token) {
-                $http.defaults.headers.common['Reurgency_Token'] = $cookies.Reurgency_Token;
-            }
+          var token = $http.defaults.headers.common['Reurgency_Token'];
+          if (!token && $cookies.Reurgency_Token) {
+            $http.defaults.headers.common['Reurgency_Token'] = $cookies.Reurgency_Token;
+          }
         }
 
         // register listener to watch route changes
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
-            if (next && next.controller) {
-                var route = next.controller;
-                    if ($cookies.ExpirationDateTime) {
-                        var bits = $cookies.ExpirationDateTime.split(/\D/);
-                        var expDate = new Date(bits[0], --bits[1], bits[2], bits[3], bits[4]);
-                    }
-                    if (!$cookies.Reurgency_Token || !(expDate && expDate.getTime() >= new Date().getTime())) {
-                        console.warn('Caught $routeChange while user  has no Token, or it has expired. Redirecting to login.');
-                    } else {
-                        if (next.controller == 'LoginController') {
-                            console.info('Caught $route to log-in while user is already authenticated. Redirecting to home.');
-                            $location.path('/home');
-                        }
-                    }
+          if (next && next.controller) {
+            var route = next.controller;
+            if ($cookies.ExpirationDateTime) {
+              var bits = $cookies.ExpirationDateTime.split(/\D/);
+              var expDate = new Date(bits[0], --bits[1], bits[2], bits[3], bits[4]);
             }
-            //Notify header of nav change
-            $rootScope.$broadcast('SelectedPartialChanged', window.location.hash);
+            if (!$cookies.Reurgency_Token || !(expDate && expDate.getTime() >= new Date().getTime())) {
+              console.warn('Caught $routeChange while user  has no Token, or it has expired. Redirecting to login.');
+            } else {
+              if (next.controller == 'LoginController') {
+                console.info('Caught $route to log-in while user is already authenticated. Redirecting to home.');
+                $location.path('/home');
+              }
+            }
+          }
+          //Notify header of nav change
+          $rootScope.$broadcast('SelectedPartialChanged', window.location.hash);
         });
-    }])
+      }])
 
-    .controller('AppController', ['$rootScope','$scope', '$location', '$route', '$http', 'configService', 'sharedData',
-      function ($rootScope, $scope, $location, $route, $http, configService,sharedData) {
+  .controller('AppController', ['$rootScope','$scope', '$location', '$route', '$http', 'configService', 'sharedData',
+    function ($rootScope, $scope, $location, $route, $http, configService,sharedData) {
 
-          $scope.location = $location;
-          $scope.companyName = 'reUrgency, LLC';
-          $scope.copyrightYear = new Date().getFullYear();
-      }]);
+      $scope.location = $location;
+      $scope.companyName = 'reUrgency, LLC';
+      $scope.copyrightYear = new Date().getFullYear();
+    }]);

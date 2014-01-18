@@ -6,13 +6,16 @@
  * To change this template use File | Settings | File Templates.
  */
 var path = require('path'),
-  util = require('util');
+    util = require('util');
 
 var _ = require('lodash')
 
 var project = require('./project');
 
 module.exports = function(grunt) {
+
+  // load all grunt- dependencies from package.json
+  require('load-grunt-tasks')(grunt);
 
   // Project configuration.
   grunt.initConfig({
@@ -72,12 +75,12 @@ module.exports = function(grunt) {
   });
 
   // Load the plugin that provides the "uglify" task.
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-usemin');
-  grunt.loadNpmTasks('grunt-html2js');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-copy');
+//  grunt.loadNpmTasks('grunt-contrib-uglify');
+//  grunt.loadNpmTasks('grunt-usemin');
+//  grunt.loadNpmTasks('grunt-html2js');
+//  grunt.loadNpmTasks('grunt-contrib-concat');
+//  grunt.loadNpmTasks('grunt-contrib-cssmin');
+//  grunt.loadNpmTasks('grunt-contrib-copy');
 
 
 

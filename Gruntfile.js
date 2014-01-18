@@ -6,16 +6,18 @@
  * To change this template use File | Settings | File Templates.
  */
 var path = require('path'),
-    util = require('util');
+    util = require('util'),
+    project = require('./project'),
+    _ = require('lodash');
 
-var _ = require('lodash')
-
-var project = require('./project');
 
 module.exports = function(grunt) {
 
   // load all grunt- dependencies from package.json
   require('load-grunt-tasks')(grunt);
+
+  // Time how long tasks take. Can help when optimizing build times
+  require('time-grunt')(grunt);
 
   // Project configuration.
   grunt.initConfig({
@@ -41,23 +43,12 @@ module.exports = function(grunt) {
     copy: {
       main: {
         files: [
-          { src: '<%= project.path.client %>/TaskApp/index.html', dest: '<%= project.path.client %>/dist/index.html'}
+          { src:  '<%= project.path.client %>/TaskApp/index.html',
+            dest: '<%= project.path.client %>/dist/index.html'}
         ]
       }
     },
 
-    ngmin: {
-      controllers: {
-        src: ['Client/TaskApp/Tasks/Task.ctrl.js'],
-        dest: 'Client/dist/Task.ctrl.js'
-      },
-      directives: {
-        expand: true,
-        cwd: 'test/src',
-        src: ['directives/**/*.js'],
-        dest: 'test/generated'
-      }
-    },
 
     html2js: {
       options: {
@@ -74,20 +65,11 @@ module.exports = function(grunt) {
     }
   });
 
-  // Load the plugin that provides the "uglify" task.
-//  grunt.loadNpmTasks('grunt-contrib-uglify');
-//  grunt.loadNpmTasks('grunt-usemin');
-//  grunt.loadNpmTasks('grunt-html2js');
-//  grunt.loadNpmTasks('grunt-contrib-concat');
-//  grunt.loadNpmTasks('grunt-contrib-cssmin');
-//  grunt.loadNpmTasks('grunt-contrib-copy');
-
 
 
   // Default task(s).
   grunt.registerTask('default',
     [
-      //'ngmin',
       'html2js',
       'useminPrepare',
       'concat',

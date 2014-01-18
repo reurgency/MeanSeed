@@ -41,6 +41,7 @@
     "grunt-contrib-cssmin": "~0.7.x",
     "grunt-express": "~0.3.6",
     "grunt-open": "~0.2.2",
-    "grunt-usemin": "~2.0.1"
+    "grunt-usemin": "~2.0.1",
+    "time-grunt": "0.2.x"
   }
 }

@@ -9,32 +9,32 @@
 exports.models = [];
 
 exports.configure = function(app, serverPath){
-    exports.models = [];
+  exports.models = [];
 
-    //Function used to walk the directories in search of models to initialize
-    function searchForModels(dir) {
-        var fs = require("fs");
-        fs.readdirSync(dir).forEach(
-            function(file) {
-                var newPath = dir + '/' + file;
-                var stat = fs.statSync(newPath);
-                if (stat.isFile()) {
-                    if (/(.*)\.(model.js$)/.test(file)) {
-                        var model = require(newPath);
-                        if( model.Model ){
-                            exports.models.push(model.Model);
-                        }
-                    }
-                } else if (stat.isDirectory()) {
-                    //Traverse for additional models recursively
-                    searchForModels(newPath);
-                }
+  //Function used to walk the directories in search of models to initialize
+  function searchForModels(dir) {
+    var fs = require("fs");
+    fs.readdirSync(dir).forEach(
+      function(file) {
+        var newPath = dir + '/' + file;
+        var stat = fs.statSync(newPath);
+        if (stat.isFile()) {
+          if (/(.*)\.(model.js$)/.test(file)) {
+            var model = require(newPath);
+            if( model.Model ){
+              exports.models.push(model.Model);
             }
-        );
-    };
+          }
+        } else if (stat.isDirectory()) {
+          //Traverse for additional models recursively
+          searchForModels(newPath);
+        }
+      }
+    );
+  };
 
-    //Walk the server directory to get all models
-    searchForModels(serverPath);
+  //Walk the server directory to get all models
+  searchForModels(serverPath);
 
 
 
